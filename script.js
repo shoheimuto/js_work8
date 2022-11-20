@@ -1,18 +1,23 @@
 window.addEventListener('load', function() {
     const pullDownButton = document.getElementById("lists");
+    const pullDownParents = document.getElementById("pull-down");
 
     pullDownButton.addEventListener('mouseover', function() {
-        pullDownButton.setAttribute("style", "background-color:blue");
+        this.setAttribute("style", "background-color:blue");
         console.log('乗った');
     
     })
     pullDownButton.addEventListener('click', function() {
-        pullDownButton.setAttribute("style", "background-color:green");
-        console.log('クリック');
-    
+        if (pullDownParents.getAttribute("style") == "display:block;"){
+            pullDownParents.removeAttribute("style", "display:block;");
+            console.log('非表示');
+        } else {
+            pullDownParents.setAttribute("style", "display:block;");
+            console.log('表示');
+        }
     })
     pullDownButton.addEventListener('mouseout', function() {
-        pullDownButton.removeAttribute("style", "background-color:red");
+        this.removeAttribute("style", "background-color:red");
         console.log('離れた');
     
     })
