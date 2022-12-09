@@ -1,6 +1,8 @@
-window.addEventListener('load', function() {
+function pullDown() {
     const pullDownButton = document.getElementById("lists");
     const pullDownParents = document.getElementById("pull-down");
+    const pullDownChild = document.querySelectorAll(".pull-down-list");
+    const currentList = document.getElementById("current-list");
 
     pullDownButton.addEventListener('mouseover', function() {
         this.setAttribute("style", "background-color:blue");
@@ -21,5 +23,13 @@ window.addEventListener('load', function() {
         console.log('離れた');
     
     })
-})
 
+    pullDownChild.forEach(function(list) {
+        list.addEventListener('click', function() {
+            const value = list.innerHTML;
+            currentList.innerHTML = value;
+            console.log(value);
+        })
+    })
+}
+window.addEventListener('load', pullDown)
